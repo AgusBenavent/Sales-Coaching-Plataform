@@ -1,0 +1,10 @@
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: #f8fafc; }
+#root { min-height: 100vh; }
+@keyframes spin { to { transform: rotate(360deg); } }
