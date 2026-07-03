@@ -40,12 +40,14 @@ function Nav() {
 }
 
 function PrivateRoute({ children }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  if (loading) return null;
   return user ? children : <Navigate to="/login" replace />;
 }
 
 function PublicRoute({ children }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  if (loading) return children;
   return !user ? children : <Navigate to="/dashboard" replace />;
 }
 
