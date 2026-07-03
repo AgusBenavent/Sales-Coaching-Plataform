@@ -59,14 +59,6 @@ export default function Login({ mode = 'login' }) {
         {error && <div style={styles.error}>{error}</div>}
         {info && <div style={styles.info}>{info}</div>}
 
-        {/* Google OAuth */}
-        <button onClick={handleGoogle} style={styles.googleBtn}>
-          <GoogleIcon />
-          Continue with Google
-        </button>
-
-        <div style={styles.divider}><span>or</span></div>
-
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           {isRegister && (
             <Field label="Full name" name="name" value={form.name} onChange={handleChange} placeholder="John Smith" />
