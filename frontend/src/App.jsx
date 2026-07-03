@@ -22,7 +22,7 @@ function Nav() {
       <div style={navStyles.brand}>SalesCoach AI</div>
       <div className="nav-links">
         <NavLink to="/upload" style={({ isActive }) => ({ ...navStyles.link, ...(isActive ? navStyles.active : {}) })}>New Call</NavLink>
-        <NavLink to="/" end style={({ isActive }) => ({ ...navStyles.link, ...(isActive ? navStyles.active : {}) })}>Dashboard</NavLink>
+        <NavLink to="/dashboard" style={({ isActive }) => ({ ...navStyles.link, ...(isActive ? navStyles.active : {}) })}>Dashboard</NavLink>
       </div>
       <div className="nav-user">
         {avatar
@@ -46,7 +46,7 @@ function PrivateRoute({ children }) {
 
 function PublicRoute({ children }) {
   const { user } = useAuth();
-  return !user ? children : <Navigate to="/" replace />;
+  return !user ? children : <Navigate to="/dashboard" replace />;
 }
 
 export default function App() {
@@ -56,10 +56,11 @@ export default function App() {
         <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
           <Nav />
           <Routes>
-            <Route path="/login"    element={<PublicRoute><Login mode="login" /></PublicRoute>} />
-            <Route path="/register" element={<PublicRoute><Login mode="register" /></PublicRoute>} />
-            <Route path="/"         element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-            <Route path="/upload"   element={<PrivateRoute><UploadCall /></PrivateRoute>} />
+            <Route path="/"          element={<Navigate to="/login" replace />} />
+            <Route path="/login"     element={<PublicRoute><Login mode="login" /></PublicRoute>} />
+            <Route path="/register"  element={<PublicRoute><Login mode="register" /></PublicRoute>} />
+            <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+            <Route path="/upload"    element={<PrivateRoute><UploadCall /></PrivateRoute>} />
             <Route path="/calls/:id" element={<PrivateRoute><CallDetail /></PrivateRoute>} />
           </Routes>
         </div>

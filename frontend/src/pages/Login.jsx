@@ -33,7 +33,7 @@ export default function Login({ mode = 'login' }) {
           password: form.password,
         });
         if (error) throw error;
-        navigate('/');
+        navigate('/dashboard');
       }
     } catch (err) {
       setError(err.message);

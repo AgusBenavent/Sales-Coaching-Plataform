@@ -74,7 +74,7 @@ export default function CallDetail() {
 
   return (
     <div className="detail-container">
-      <button onClick={() => navigate('/')} style={s.backBtn}>
+      <button onClick={() => navigate('/dashboard')} style={s.backBtn}>
         <ArrowLeft size={15} /> Volver al Dashboard
       </button>
 

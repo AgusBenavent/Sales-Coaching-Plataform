@@ -212,7 +212,7 @@ export default function UploadCall() {
             <button type="submit" disabled={submitting} style={{ ...s.btnPrimary, opacity: submitting ? 0.7 : 1 }}>
               {submitting ? 'Starting...' : '🚀 Start AI Evaluation'}
             </button>
-            <button type="button" onClick={() => navigate('/')} style={s.btnSecondary}>Cancel</button>
+            <button type="button" onClick={() => navigate('/dashboard')} style={s.btnSecondary}>Cancel</button>
           </div>
         </form>
       </div>
