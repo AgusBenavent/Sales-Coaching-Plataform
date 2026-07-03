@@ -21,8 +21,8 @@ function Nav() {
     <nav className="nav-root">
       <div style={navStyles.brand}>SalesCoach AI</div>
       <div className="nav-links">
-        <NavLink to="/" end style={({ isActive }) => ({ ...navStyles.link, ...(isActive ? navStyles.active : {}) })}>Dashboard</NavLink>
         <NavLink to="/upload" style={({ isActive }) => ({ ...navStyles.link, ...(isActive ? navStyles.active : {}) })}>New Call</NavLink>
+        <NavLink to="/" end style={({ isActive }) => ({ ...navStyles.link, ...(isActive ? navStyles.active : {}) })}>Dashboard</NavLink>
       </div>
       <div className="nav-user">
         {avatar

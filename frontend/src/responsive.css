@@ -1,3 +1,14 @@
+/* ── Print / PDF ── */
+@media print {
+  .no-print { display: none !important; }
+  nav { display: none !important; }
+  body { background: #fff !important; }
+  .page-container { padding: 0 !important; max-width: 100% !important; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr) !important; }
+  .grid-2 { grid-template-columns: 1fr 1fr !important; }
+  .table-wrapper { overflow: visible !important; }
+}
+
 /* ── Responsive grid utilities ── */
 .grid-4 {
   display: grid;
