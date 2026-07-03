@@ -287,14 +287,14 @@ export default function CallDetail() {
                 <div key={i} style={{ marginBottom: 12, padding: '10px 14px', background: '#fffbeb', borderRadius: 8, borderLeft: '3px solid #fbbf24' }}>
                   <div style={{ fontWeight: 600, fontSize: 13, color: '#374151', marginBottom: 6 }}>{o.objection}</div>
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 6 }}>
-                    <StatusChip label="Identificada" ok={o.identified} />
-                    <StatusChip label="Reconocida" ok={o.acknowledged} />
-                    <StatusChip label="Respondida" ok={o.answered} />
-                    <StatusChip label="Resuelta" ok={o.resolved} />
+                    <StatusChip label="Identified" ok={o.identified} />
+                    <StatusChip label="Acknowledged" ok={o.acknowledged} />
+                    <StatusChip label="Answered" ok={o.answered} />
+                    <StatusChip label="Resolved" ok={o.resolved} />
                   </div>
                   {o.ideal_response && (
                     <div style={{ fontSize: 12, color: '#0369a1', background: '#e0f2fe', borderRadius: 6, padding: '6px 10px' }}>
-                      <strong>Respuesta ideal:</strong> {o.ideal_response}
+                      <strong>Ideal response:</strong> {o.ideal_response}
                     </div>
                   )}
                 </div>
@@ -305,7 +305,7 @@ export default function CallDetail() {
           {!full.buying_signals?.length && !full.risk_signals?.length && !full.objections?.length && (
             !hasCategories
               ? <EmptyState onReeval={handleReeval} reeval={reeval} />
-              : <div style={s.center}>No se detectaron señales en esta llamada.</div>
+              : <div style={s.center}>No signals detected in this call.</div>
           )}
         </div>
       )}
@@ -356,7 +356,7 @@ export default function CallDetail() {
               </div>
             </div>
           )}
-          {feedbackSent && <div style={s.infoBox}>Feedback enviado correctamente.</div>}
+          {feedbackSent && <div style={s.infoBox}>Feedback submitted successfully.</div>}
         </div>
       )}
 
@@ -483,7 +483,7 @@ function TalkRatioBar({ interviewer = 0, student = 0 }) {
         </div>
       </div>
       <div style={{ display: 'flex', gap: 16, fontSize: 12 }}>
-        <span><span style={{ color: '#6366f1', fontWeight: 700 }}>●</span> Asesor {interviewer}%</span>
+        <span><span style={{ color: '#6366f1', fontWeight: 700 }}>●</span> Advisor {interviewer}%</span>
         <span><span style={{ color: '#22c55e', fontWeight: 700 }}>●</span> Contact {student}%</span>
       </div>
     </div>
