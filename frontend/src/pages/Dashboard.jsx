@@ -29,12 +29,7 @@ export default function Dashboard() {
 
   return (
     <div className="page-container">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-        <h1 style={{ ...styles.title, marginBottom: 0 }}>Coaching Dashboard</h1>
-        <button onClick={() => window.print()} style={styles.pdfBtn} className="no-print">
-          ⬇ Download PDF
-        </button>
-      </div>
+      <h1 style={styles.title}>Coaching Dashboard</h1>
 
       {/* Summary Cards */}
       <div className="grid-4">
@@ -154,7 +149,6 @@ const styles = {
   table: { width: '100%', borderCollapse: 'collapse', fontSize: 13 },
   th: { padding: '8px 12px', textAlign: 'left', fontSize: 12, fontWeight: 600, color: '#64748b', whiteSpace: 'nowrap' },
   td: { padding: '10px 12px', color: '#374151' },
-  pdfBtn: { background: '#fff', color: '#6366f1', border: '1px solid #6366f1', borderRadius: 8, padding: '8px 18px', cursor: 'pointer', fontWeight: 600, fontSize: 13, display: 'flex', alignItems: 'center', gap: 6 },
   btnPrimary: { background: '#6366f1', color: '#fff', border: 'none', borderRadius: 8, padding: '8px 16px', cursor: 'pointer', fontWeight: 600, fontSize: 13 },
   btnSmall: { background: '#f1f5f9', color: '#374151', border: '1px solid #e2e8f0', borderRadius: 6, padding: '4px 10px', cursor: 'pointer', fontSize: 12 },
   center: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh', color: '#64748b', fontSize: 16 },

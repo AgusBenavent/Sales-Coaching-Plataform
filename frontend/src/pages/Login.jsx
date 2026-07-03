@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 
 export default function Login({ mode = 'login' }) {
@@ -46,7 +46,15 @@ export default function Login({ mode = 'login' }) {
     <div style={styles.bg}>
       <div style={styles.card}>
         <div style={styles.logo}>SalesCoach AI</div>
-        <h2 style={styles.title}>{isRegister ? 'Create your account' : 'Welcome back'}</h2>
+
+        <div style={styles.tabs}>
+          <button onClick={() => navigate('/login')} style={{ ...styles.tab, ...((!isRegister) ? styles.tabActive : {}) }}>
+            Sign in
+          </button>
+          <button onClick={() => navigate('/register')} style={{ ...styles.tab, ...(isRegister ? styles.tabActive : {}) }}>
+            Register
+          </button>
+        </div>
 
         {error && <div style={styles.error}>{error}</div>}
         {info && <div style={styles.info}>{info}</div>}
@@ -63,12 +71,6 @@ export default function Login({ mode = 'login' }) {
           </button>
         </form>
 
-        <p style={styles.switch}>
-          {isRegister ? 'Already have an account? ' : "Don't have an account? "}
-          <Link to={isRegister ? '/login' : '/register'} style={{ color: '#6366f1', fontWeight: 600 }}>
-            {isRegister ? 'Sign in' : 'Register'}
-          </Link>
-        </p>
       </div>
     </div>
   );
@@ -87,14 +89,13 @@ function Field({ label, name, type = 'text', value, onChange, placeholder }) {
 const styles = {
   bg: { minHeight: '100vh', background: '#f8fafc', display: 'flex', alignItems: 'center', justifyContent: 'center' },
   card: { background: '#fff', border: '1px solid #e2e8f0', borderRadius: 16, padding: '40px 36px', width: '100%', maxWidth: 420, boxShadow: '0 4px 24px rgba(0,0,0,0.08)' },
-  logo: { fontWeight: 800, fontSize: 20, color: '#6366f1', marginBottom: 8 },
-  title: { fontSize: 22, fontWeight: 700, color: '#1e293b', margin: '0 0 24px' },
+  logo: { fontWeight: 800, fontSize: 20, color: '#6366f1', marginBottom: 16 },
+  tabs: { display: 'flex', background: '#f1f5f9', borderRadius: 10, padding: 4, marginBottom: 24, gap: 4 },
+  tab: { flex: 1, padding: '8px 0', borderRadius: 8, border: 'none', cursor: 'pointer', fontSize: 14, fontWeight: 600, background: 'none', color: '#64748b' },
+  tabActive: { background: '#fff', color: '#6366f1', boxShadow: '0 1px 4px rgba(0,0,0,0.08)' },
   label: { display: 'block', fontSize: 12, fontWeight: 600, color: '#374151', marginBottom: 4 },
   input: { width: '100%', border: '1px solid #d1d5db', borderRadius: 8, padding: '9px 12px', fontSize: 14, color: '#1e293b', boxSizing: 'border-box', outline: 'none' },
   btn: { background: '#6366f1', color: '#fff', border: 'none', borderRadius: 8, padding: '11px', cursor: 'pointer', fontWeight: 700, fontSize: 15, marginTop: 4 },
-  googleBtn: { width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', border: '1px solid #d1d5db', borderRadius: 8, padding: '10px', cursor: 'pointer', fontWeight: 600, fontSize: 14, color: '#374151', marginBottom: 16 },
-  divider: { textAlign: 'center', margin: '4px 0 16px', color: '#94a3b8', fontSize: 13, position: 'relative' },
   error: { background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 8, padding: '10px 14px', color: '#dc2626', marginBottom: 16, fontSize: 13 },
   info: { background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 8, padding: '10px 14px', color: '#16a34a', marginBottom: 16, fontSize: 13 },
-  switch: { textAlign: 'center', marginTop: 20, fontSize: 14, color: '#64748b' },
 };
