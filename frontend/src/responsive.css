@@ -1,0 +1,142 @@
+/* ── Responsive grid utilities ── */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.grid-2-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Nav ── */
+.nav-root {
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Page containers ── */
+.page-container {
+  padding: 24px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Inter, system-ui, sans-serif;
+}
+.page-container-sm {
+  padding: 40px 24px;
+  max-width: 780px;
+  margin: 0 auto;
+  font-family: Inter, system-ui, sans-serif;
+}
+.detail-container {
+  padding: 24px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* ── Tabs ── */
+.tabs-row {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e2e8f0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tabs-row::-webkit-scrollbar { display: none; }
+
+/* ── Table ── */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Call detail header ── */
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+/* ── Card padding ── */
+.upload-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+/* ────────────────────────────────────────
+   TABLET  (≤ 900px)
+──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .page-container { padding: 20px 20px; }
+  .detail-container { padding: 20px 20px; }
+}
+
+/* ────────────────────────────────────────
+   MOBILE  (≤ 600px)
+──────────────────────────────────────── */
+@media (max-width: 600px) {
+  .grid-4 { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-2-form { grid-template-columns: 1fr; }
+
+  .nav-root {
+    padding: 0 16px;
+    height: auto;
+    min-height: 56px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .nav-user { gap: 6px; }
+
+  .page-container { padding: 16px 14px; }
+  .page-container-sm { padding: 16px 14px; }
+  .detail-container { padding: 16px 14px; }
+
+  .upload-card { padding: 20px 16px; }
+
+  .detail-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

@@ -73,13 +73,13 @@ export default function CallDetail() {
   }));
 
   return (
-    <div style={s.container}>
+    <div className="detail-container">
       <button onClick={() => navigate('/')} style={s.backBtn}>
         <ArrowLeft size={15} /> Volver al Dashboard
       </button>
 
       {/* Header */}
-      <div style={s.header}>
+      <div className="detail-header">
         <div>
           <h1 style={s.title}>
             {call.salesperson_name} — {call.contact_name || (call.contact_type === 'student' ? 'Student' : 'Contact')}
@@ -130,7 +130,7 @@ export default function CallDetail() {
       )}
 
       {/* Tabs */}
-      <div style={s.tabs}>
+      <div className="tabs-row">
         {TABS.map(([tab, label]) => (
           <button key={tab} onClick={() => setActiveTab(tab)}
             style={{ ...s.tab, ...(activeTab === tab ? s.tabActive : {}) }}>
@@ -142,7 +142,7 @@ export default function CallDetail() {
       {/* ── OVERVIEW ── */}
       {activeTab === 'overview' && (
         <div>
-          <div style={s.grid4}>
+          <div className="grid-4" style={{ gap: 12 }}>
             <MiniCard label="Overall Score" value={overallScore} unit="/100" color={scoreColor(overallScore)} />
             <MiniCard label="Quality" value={full.call_quality || '—'} color="#6366f1" />
             <MiniCard label="Advance Stage" value={full.advance_stage ? 'YES' : 'NO'} color={full.advance_stage ? '#22c55e' : '#ef4444'} />
@@ -151,7 +151,7 @@ export default function CallDetail() {
 
           {/* 3 BUCKETS — the main new section */}
           {hasCategories && (
-            <div style={s.grid3}>
+            <div className="grid-3">
               <BucketCard
                 title="✅ What's working well"
                 items={good}
@@ -180,7 +180,7 @@ export default function CallDetail() {
           )}
 
           {hasCategories && (
-            <div style={s.grid2}>
+            <div className="grid-2">
               <div style={s.card}>
                 <h3 style={s.cardTitle}>Performance Radar</h3>
                 <ResponsiveContainer width="100%" height={260}>
@@ -205,7 +205,7 @@ export default function CallDetail() {
 
           {/* Talk ratio & sentiment */}
           {(full.talk_ratio || full.sentiment) && (
-            <div style={s.grid2}>
+            <div className="grid-2">
               {full.talk_ratio && (
                 <div style={s.card}>
                   <h3 style={s.cardTitle}>Talk Ratio</h3>

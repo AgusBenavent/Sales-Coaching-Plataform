@@ -18,14 +18,13 @@ function Nav() {
   const handleLogout = async () => { await logout(); navigate('/login'); };
 
   return (
-    <nav style={navStyles.nav}>
+    <nav className="nav-root">
       <div style={navStyles.brand}>SalesCoach AI</div>
-      <div style={navStyles.links}>
+      <div className="nav-links">
         <NavLink to="/" end style={({ isActive }) => ({ ...navStyles.link, ...(isActive ? navStyles.active : {}) })}>Dashboard</NavLink>
         <NavLink to="/upload" style={({ isActive }) => ({ ...navStyles.link, ...(isActive ? navStyles.active : {}) })}>New Call</NavLink>
-
       </div>
-      <div style={navStyles.userArea}>
+      <div className="nav-user">
         {avatar
           ? <img src={avatar} alt={name} style={navStyles.avatarImg} />
           : <div style={navStyles.avatar}>{initial}</div>
@@ -36,7 +35,6 @@ function Nav() {
         </div>
         <button onClick={handleLogout} style={navStyles.logoutBtn}>Sign out</button>
       </div>
-
     </nav>
   );
 }

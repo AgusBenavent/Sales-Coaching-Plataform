@@ -82,8 +82,8 @@ export default function UploadCall() {
 
   if (step === 'upload') {
     return (
-      <div style={s.container}>
-        <div style={s.card}>
+      <div className="page-container-sm">
+        <div className="upload-card">
           <h2 style={s.title}>New Call</h2>
           <p style={s.subtitle}>Upload the transcript and AI will fill in all fields automatically.</p>
 
@@ -149,8 +149,8 @@ export default function UploadCall() {
   }
 
   return (
-    <div style={s.container}>
-      <div style={s.card}>
+    <div className="page-container-sm">
+      <div className="upload-card">
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
           <button onClick={() => setStep('upload')} style={s.backBtn}>← Back</button>
           <h2 style={{ ...s.title, margin: 0 }}>Review & Confirm</h2>
@@ -165,7 +165,7 @@ export default function UploadCall() {
         {submitError && <div style={s.error}>{submitError}</div>}
 
         <form onSubmit={handleSubmit}>
-          <div style={s.grid2}>
+          <div className="grid-2-form">
             <Field label="EIA Advisor Name" name="salesperson_name" value={form.salesperson_name} onChange={handleChange} placeholder="e.g. Aija Vanaga" />
 
             <div>

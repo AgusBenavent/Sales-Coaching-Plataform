@@ -28,11 +28,11 @@ export default function Dashboard() {
   const { summary, byRep, recentCalls } = data;
 
   return (
-    <div style={styles.container}>
+    <div className="page-container">
       <h1 style={styles.title}>Coaching Dashboard</h1>
 
       {/* Summary Cards */}
-      <div style={styles.grid4}>
+      <div className="grid-4">
         <Card icon={<Phone size={20} />} label="Total Calls" value={summary?.total_calls ?? 0} color="#6366f1" />
         <Card icon={<TrendingUp size={20} />} label="Avg Score" value={summary?.avg_score ?? 0} color="#22c55e" />
         <Card icon={<CheckCircle size={20} />} label="Excellent (≥80)" value={summary?.excellent_calls ?? 0} color="#0ea5e9" />
@@ -40,7 +40,7 @@ export default function Dashboard() {
       </div>
 
       {/* Charts */}
-      <div style={styles.grid2}>
+      <div className="grid-2">
         <div style={styles.card}>
           <h3 style={styles.cardTitle}>Performance by Advisor</h3>
           <ResponsiveContainer width="100%" height={220}>
@@ -74,6 +74,7 @@ export default function Dashboard() {
           <h3 style={styles.cardTitle}>Recent Calls</h3>
           <button style={styles.btnPrimary} onClick={() => navigate('/upload')}>+ New Call</button>
         </div>
+        <div className="table-wrapper">
         <table style={styles.table}>
           <thead>
             <tr style={{ background: '#f1f5f9' }}>
@@ -109,6 +110,7 @@ export default function Dashboard() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );
