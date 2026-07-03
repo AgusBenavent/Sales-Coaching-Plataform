@@ -92,6 +92,11 @@ export default function CallDetail() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           {!isRunning && (
+            <button onClick={() => window.print()} style={s.pdfBtn} className="no-print">
+              ⬇ Download PDF
+            </button>
+          )}
+          {!isRunning && (
             <button onClick={handleReeval} disabled={reeval} style={s.reevalBtn} title="Re-evaluate with the new system">
               <RefreshCw size={13} style={reeval ? { animation: 'spin 1s linear infinite' } : {}} />
               {reeval ? ' Re-evaluating...' : ' Re-evaluate'}
@@ -533,6 +538,7 @@ const s = {
   title: { fontSize: 20, fontWeight: 700, color: '#1e293b', margin: '8px 0 4px' },
   meta: { color: '#64748b', margin: 0, fontSize: 13 },
   backBtn: { display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', color: '#6366f1', cursor: 'pointer', fontSize: 13, fontWeight: 600, marginBottom: 16, padding: 0 },
+  pdfBtn: { background: '#fff', color: '#6366f1', border: '1px solid #6366f1', borderRadius: 8, padding: '7px 14px', cursor: 'pointer', fontWeight: 600, fontSize: 13, display: 'flex', alignItems: 'center', gap: 6 },
   reevalBtn: { display: 'flex', alignItems: 'center', gap: 6, background: '#f1f5f9', border: '1px solid #e2e8f0', borderRadius: 8, padding: '7px 14px', cursor: 'pointer', fontSize: 13, fontWeight: 600, color: '#374151' },
   runningBadge: { display: 'flex', alignItems: 'center', gap: 6, background: '#eff6ff', color: '#3b82f6', borderRadius: 20, padding: '6px 14px', fontSize: 13, fontWeight: 600 },
   scoreBig: { textAlign: 'center' },
